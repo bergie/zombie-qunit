@@ -1,0 +1,15 @@
+{
+  "name": "zombie-qunit",
+  "version": "0.0.1",
+  "dependencies": {
+    "underscore": ">=1.2.0"
+  },
+  "devDependencies": {
+    "nodeunit"  : ">=0.6.0",
+    "zombie"    : ">=0.11.7",
+    "express"   : ">=2.5.0"
+  },
+  "scripts":    {
+    "test": "./node_modules/nodeunit/bin/nodeunit test"
+  }
+}
