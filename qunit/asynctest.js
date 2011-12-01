@@ -38,3 +38,17 @@ test("Test AJAX Cross-Domain call", function() {
         start();
     });
 });
+
+test("Test AJAX Cross-Domain with JSONP", function() {
+    stop();
+    var promise = jQuery.getJSON('https://api.twitter.com/1/statuses/public_timeline.json?count=3&include_entities=true&callback=?');
+    promise.done(function(data) {
+        ok(data, 'Got data back');
+    });
+    promise.fail(function(err) {
+        ok(false, 'Request failed: ' + err.statusText);
+    });
+    promise.complete(function() {
+        start();
+    });
+});
