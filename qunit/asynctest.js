@@ -25,14 +25,14 @@ test("Test AJAX call", function() {
     });
 });
 
-test("Test AJAX call to external resource", function() {
+test("Test AJAX Cross-Domain call", function() {
     stop();
     var promise = jQuery.getJSON('http://schema.rdfs.org/all.json');
     promise.done(function(data) {
-        ok(data, 'Check that we got data');
+        ok(false, 'This request should have failed due to cross-site restrictions');
     });
     promise.fail(function(err) {
-        ok(false, 'Request failed: ' + err.statusText);
+        ok(true, 'Request failed due to cross-site restrictions: ' + err.statusText);
     });
     promise.complete(function() {
         start();
