@@ -10,7 +10,7 @@ test("Test asynchronous testing", function() {
 
 test("Test AJAX call", function() {
     stop();
-    promise = jQuery.ajax({
+    var promise = jQuery.ajax({
         url: '/package.json',
         dataType: 'json'
     });
@@ -19,6 +19,20 @@ test("Test AJAX call", function() {
     });
     promise.fail(function(err) {
         equal(true, false, 'Request failed');
+    });
+    promise.complete(function() {
+        start();
+    });
+});
+
+test("Test AJAX call to external resource", function() {
+    stop();
+    var promise = jQuery.getJSON('http://schema.rdfs.org/all.json');
+    promise.done(function(data) {
+        ok(data, 'Check that we got data');
+    });
+    promise.fail(function(err) {
+        ok(false, 'Request failed: ' + err.statusText);
     });
     promise.complete(function() {
         start();
