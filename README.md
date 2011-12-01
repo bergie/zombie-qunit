@@ -15,6 +15,10 @@ or:
 
     $ ./node_modules/nodeunit/bin/nodeunit test
 
+## Travis integration
+
+See the `.travis.yml` for example on how to integrate these tests with the [Travis Continuous Integration service](http://travis-ci.org/).
+
 ## Contributing
 
 If you figure out more QUnit or jQuery features to test against, or a better way to get detailed information about the tests run passed from QUnit to nodeunit, please file pull requests.
